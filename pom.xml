@@ -8,6 +8,7 @@
         <version>2.1.8.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>cn.wt</groupId>
     <artifactId>handle-exception</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -58,9 +59,9 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-
+<!--
         <resources>
-            <!--编译之后包含xml-->
+            编译之后包含pom.xml
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
@@ -76,7 +77,7 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
-
+-->
     </build>
 
 </project>
