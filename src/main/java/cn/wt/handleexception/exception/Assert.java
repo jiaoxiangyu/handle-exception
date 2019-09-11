@@ -26,7 +26,7 @@ public class Assert {
 
     /**
      * @title:  isBlank
-     * @description:  判断字符串是否为空，包含""
+     * @description:  判断字符串是否为空，包含"", 打印日志，返回给前端错误信息
      * @param param
      * @param code
      * @param msg
@@ -39,17 +39,7 @@ public class Assert {
     }
 
     /**
-     * @title:  isBlank
-     * @description:  判断字符串是否为空，包含""
-     * @param param
-     * @param resultEnum
-     * @return  void
-     */
-    public static void isBlank(String param, ResultEnum resultEnum){
-        if (StringUtils.isBlank(param)){
-            throw new AssertException(resultEnum);
-        }
-    }
+
 
     /**
      * @title:  isBlank
@@ -66,7 +56,7 @@ public class Assert {
 
     /**
      * @title:  isNull
-     * @description:  判断对象是否为null
+     * @description:  判断对象是否为null, 打印日志，返回给前端错误信息
      * @param param
      * @param code
      * @param msg
@@ -78,18 +68,7 @@ public class Assert {
         }
     }
 
-    /**
-     * @title:  isNull
-     * @description:  判断对象是否为null
-     * @param param
-     * @param resultEnum
-     * @return  void
-     */
-    public static void isNull(Object param, ResultEnum resultEnum){
-        if (param==null){
-            throw new AssertException(resultEnum);
-        }
-    }
+
 
     /**
      * @title:  isNull
@@ -106,7 +85,7 @@ public class Assert {
 
     /**
      * @title:  isNotNull
-     * @description:  判断对象是否不为null
+     * @description:  判断对象是否不为null, 打印日志，返回给前端错误信息
      * @param param
      * @param code
      * @param msg
@@ -115,19 +94,6 @@ public class Assert {
     public static void isNotNull(Object param, int code, String msg){
         if (param!=null){
             throw new AssertException(code, msg);
-        }
-    }
-
-    /**
-     * @title:  isNotNull
-     * @description:  判断对象是否不为null
-     * @param param
-     * @param resultEnum
-     * @return  void
-     */
-    public static void isNotNull(Object param, ResultEnum resultEnum){
-        if (param!=null){
-            throw new AssertException(resultEnum);
         }
     }
 
@@ -146,7 +112,7 @@ public class Assert {
 
     /**
      * @title:  isEmpty
-     * @description:  判断Collection集合为空
+     * @description:  判断Collection集合为空, 打印日志，返回给前端错误信息
      * @param param
      * @param code
      * @param msg
@@ -155,19 +121,6 @@ public class Assert {
     public static void isEmpty(Collection param, int code, String msg){
         if (param==null || param.size()==0){
             throw new AssertException(code, msg);
-        }
-    }
-
-    /**
-     * @title:  isEmpty
-     * @description:  判断Collection集合为空
-     * @param param
-     * @param resultEnum
-     * @return  void
-     */
-    public static void isEmpty(Collection param, ResultEnum resultEnum){
-        if (param==null || param.size()==0){
-            throw new AssertException(resultEnum);
         }
     }
 
@@ -186,7 +139,7 @@ public class Assert {
 
     /**
      * @title:  isEmpty
-     * @description:  判断Map集合为空
+     * @description:  判断Map集合为空, 打印日志，返回给前端错误信息
      * @param param
      * @param code
      * @param msg
@@ -195,19 +148,6 @@ public class Assert {
     public static void isEmpty(Map param, int code, String msg){
         if (param==null || param.size()==0){
             throw new AssertException(code, msg);
-        }
-    }
-
-    /**
-     * @title:  isEmpty
-     * @description:  判断Map集合为空
-     * @param param
-     * @param resultEnum
-     * @return  void
-     */
-    public static void isEmpty(Map param, ResultEnum resultEnum){
-        if (param==null || param.size()==0){
-            throw new AssertException(resultEnum);
         }
     }
 
@@ -226,7 +166,7 @@ public class Assert {
 
     /**
      * @title:  isLessThanZero
-     * @description:  判断Integer是否小于0
+     * @description:  判断Integer是否小于0, 打印日志，返回给前端错误信息
      * @param param
      * @param code
      * @param msg
@@ -235,19 +175,6 @@ public class Assert {
     public static void isLessThanZero(Integer param, int code, String msg){
         if (param==null || param < 0){
             throw new AssertException(code, msg);
-        }
-    }
-
-    /**
-     * @title:  isLessThanZero
-     * @description:  判断Integer是否小于0
-     * @param param
-     * @param resultEnum
-     * @return  void
-     */
-    public static void isLessThanZero(Integer param, ResultEnum resultEnum){
-        if (param==null || param < 0){
-            throw new AssertException(resultEnum);
         }
     }
 
@@ -265,8 +192,35 @@ public class Assert {
     }
 
     /**
+     * @title:  isLessThanZero
+     * @description:  判断Long是否小于0, 打印日志，返回给前端错误信息
+     * @param param
+     * @param code
+     * @param msg
+     * @return  void
+     */
+    public static void isLessThanZero(Long param, int code, String msg){
+        if (param==null || param < 0){
+            throw new AssertException(code, msg);
+        }
+    }
+
+    /**
+     * @title:  isLessThanZero
+     * @description:  判断Long是否小于0, 打印错误日志，并抛出服务端异常
+     * @param param
+     * @param msg
+     * @return  void
+     */
+    public static void isLessThanZero(Long param, String msg){
+        if (param==null || param < 0){
+            throw new LogException(msg);
+        }
+    }
+
+    /**
      * @title:  isLessThanOrEqualZero
-     * @description:  判断Integer是否小于等于0
+     * @description:  判断Integer是否小于等于0, 打印日志，返回给前端错误信息
      * @param param
      * @param code
      * @param msg
@@ -275,19 +229,6 @@ public class Assert {
     public static void isLessThanOrEqualZero(Integer param, int code, String msg){
         if (param==null || param <= 0){
             throw new AssertException(code, msg);
-        }
-    }
-
-    /**
-     * @title:  isLessThanOrEqualZero
-     * @description:  判断Integer是否小于等于0
-     * @param param
-     * @param resultEnum
-     * @return  void
-     */
-    public static void isLessThanOrEqualZero(Integer param, ResultEnum resultEnum){
-        if (param==null || param <= 0){
-            throw new AssertException(resultEnum);
         }
     }
 
@@ -303,5 +244,89 @@ public class Assert {
             throw new LogException(msg);
         }
     }
+
+    /**
+     * @title:  isLessThanOrEqualZero
+     * @description:  判断Long是否小于等于0, 打印日志，返回给前端错误信息
+     * @param param
+     * @param code
+     * @param msg
+     * @return  void
+     */
+    public static void isLessThanOrEqualZero(Long param, int code, String msg){
+        if (param==null || param <= 0){
+            throw new AssertException(code, msg);
+        }
+    }
+
+    /**
+     * @title:  isLessThanOrEqualZero
+     * @description:  判断Long是否小于等于0，打印错误日志，并抛出服务端异常
+     * @param param
+     * @param msg
+     * @return  void
+     */
+    public static void isLessThanOrEqualZero(Long param, String msg){
+        if (param==null || param <= 0){
+            throw new LogException(msg);
+        }
+    }
+
+    /**
+     * @title:  isTrue
+     * @description:  判断bool是否为true, 打印日志，返回给前端错误信息
+     * @param bool
+     * @param code
+     * @param msg
+     * @return  void
+     */
+    public static void isTrue(Boolean bool, int code, String msg){
+        if (bool==true){
+            throw new AssertException(code, msg);
+        }
+    }
+
+    /**
+     * @title:  isTrue
+     * @description:  判断bool是否为true, 打印日志，并抛出服务端异常
+     * @param bool
+     * @param msg
+     * @return  void
+     */
+    public static void isTrue(Boolean bool, String msg){
+        if (bool==true){
+            throw new LogException(msg);
+        }
+    }
+
+
+    /**
+     * @title:  isFalse
+     * @description:  判断bool是否为false, 打印日志，返回给前端错误信息
+     * @param bool
+     * @param code
+     * @param msg
+     * @return  void
+     */
+    public static void isFalse(Boolean bool, int code, String msg){
+        if (bool==false){
+            throw new AssertException(code, msg);
+        }
+    }
+
+    /**
+     * @title:  isTrue
+     * @description:  判断bool是否为false, 打印日志，并抛出服务端异常
+     * @param bool
+     * @param msg
+     * @return  void
+     */
+    public static void isFalse(Boolean bool, String msg){
+        if (bool==false){
+            throw new LogException(msg);
+        }
+    }
+
+
 
 }

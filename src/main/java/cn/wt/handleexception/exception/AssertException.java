@@ -22,12 +22,6 @@ public class AssertException extends RuntimeException {
 
     }
 
-    public AssertException(ResultEnum resultEnum) {
-        super(resultEnum.getMsg());
-        this.code = resultEnum.getCode();
-        this.msg = resultEnum.getMsg();
-    }
-
     public AssertException(int code, String msg) {
         super(msg);
         this.code = code;

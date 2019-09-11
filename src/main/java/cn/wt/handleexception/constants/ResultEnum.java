@@ -9,14 +9,8 @@ package cn.wt.handleexception.constants;
  * @Since JDK1.8
  */
 public enum ResultEnum {
-    SERVER_ERROR(999, "服务器错误"),
-    SUCCESS(200, "SUCCESS"),
-    STRING_NULL(411,"String is null"),
-    OBJECT_NULL(412,"Object is null"),
-    COLLECTION_NULL(413,"Collection is null"),
-    MAP_NULL(414,"Map is null"),
-    INTEGER_LESS_THAN_ZERO(415,"Integer is less then zero"),
-    INTEGER_LESS_THAN_OR_EQUAL_ZERO(416,"Integer is less then or equal zero");
+    SERVER_ERROR(500, "服务端错误"),
+    SUCCESS(0, "SUCCESS");
 
     private Integer code;//状态码
 

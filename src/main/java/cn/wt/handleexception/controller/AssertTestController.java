@@ -52,7 +52,7 @@ public class AssertTestController {
     @RequestMapping(value = "isBlank", method = RequestMethod.GET)
     public Result isBlank(){
         String param="";
-        Assert.isBlank(param, ResultEnum.STRING_NULL);
+        Assert.isBlank(param, 412, "string is null");
         return ResultUtil.success();
     }
 
@@ -65,7 +65,7 @@ public class AssertTestController {
     @RequestMapping(value = "isNull", method = RequestMethod.GET)
     public Result isNull(){
         Object param=null;
-        Assert.isNull(param, ResultEnum.OBJECT_NULL);
+        Assert.isNull(param, 412, "object is null");
         return ResultUtil.success();
     }
 
@@ -78,7 +78,7 @@ public class AssertTestController {
     @RequestMapping(value = "isLessThanZero", method = RequestMethod.GET)
     public Result isLessThanZero(){
         Object param=null;
-        Assert.isLessThanZero(-1, ResultEnum.INTEGER_LESS_THAN_ZERO);
+        Assert.isLessThanZero(-1, 412, "int is less 0");
         return ResultUtil.success();
     }
 
@@ -102,7 +102,7 @@ public class AssertTestController {
      */
     @RequestMapping(value = "logException", method = RequestMethod.GET)
     public Result logException(){
-        Assert.isBlank("", ResultEnum.STRING_NULL.getMsg());
+        Assert.isBlank("", 412, "string is null");
         return ResultUtil.success();
     }
 

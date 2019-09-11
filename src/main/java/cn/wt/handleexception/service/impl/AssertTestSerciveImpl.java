@@ -24,6 +24,6 @@ public class AssertTestSerciveImpl implements IAssertTestService {
      */
     @Override
     public void testServiceException() {
-        Assert.isBlank("", ResultEnum.STRING_NULL);
+        Assert.isBlank("", 412,"service string is null");
     }
 }
